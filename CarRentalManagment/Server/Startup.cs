@@ -1,3 +1,5 @@
+using CarRentalManagement.Server.IRepository;
+using CarRentalManagement.Server.Repository;
 using CarRentalManagment.Server.Data;
 using CarRentalManagment.Server.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -32,7 +34,7 @@ namespace CarRentalManagment.Server
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
@@ -40,6 +42,7 @@ namespace CarRentalManagment.Server
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
