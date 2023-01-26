@@ -4,6 +4,9 @@ namespace CarRentalManagment.Shared.Domain
 {
     public class Customer :BaseDomainModel
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
         public string DrivingLicense {get; set;}
 
         public string Address { get; set; }

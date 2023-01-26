@@ -25,5 +25,7 @@ namespace CarRentalManagment.Shared.Domain
         public virtual Colour Colour { get; set; }
 
         public virtual List<Booking> Bookings { get; set; }
+        
+        public double RentalRate { get; set; }
     }
 }
